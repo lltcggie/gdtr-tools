@@ -1906,6 +1906,12 @@ Error Main::setup(const char *execpath, int argc, char *argv[], bool p_second_ph
 	}
 #endif
 
+#ifndef TOOLS_ENABLED
+	// CLI Only
+	audio_driver = NULL_AUDIO_DRIVER;
+	display_driver = NULL_DISPLAY_DRIVER;
+#endif
+
 	// Network file system needs to be configured before globals, since globals are based on the
 	// 'project.godot' file which will only be available through the network if this is enabled
 	if (!remotefs.is_empty()) {

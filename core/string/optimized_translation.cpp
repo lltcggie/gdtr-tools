@@ -45,7 +45,6 @@ struct CompressedString {
 void OptimizedTranslation::generate(const Ref<Translation> &p_from) {
 	// This method compresses a Translation instance.
 	// Right now, it doesn't handle context or plurals, so Translation subclasses using plurals or context (i.e TranslationPO) shouldn't be compressed.
-#ifdef TOOLS_ENABLED
 	ERR_FAIL_COND(p_from.is_null());
 	List<StringName> keys;
 	p_from->get_message_list(&keys);
@@ -174,8 +173,6 @@ void OptimizedTranslation::generate(const Ref<Translation> &p_from) {
 
 	ERR_FAIL_COND(btindex != bucket_table_size);
 	set_locale(p_from->get_locale());
-
-#endif
 }
 
 bool OptimizedTranslation::_set(const StringName &p_name, const Variant &p_value) {

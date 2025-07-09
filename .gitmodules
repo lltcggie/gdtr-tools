@@ -1,0 +1,3 @@
+[submodule "modules/gdtr"]
+	path = modules/gdtr
+	url = https://github.com/lltcggie/gdtr.git
